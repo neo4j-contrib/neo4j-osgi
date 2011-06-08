@@ -28,6 +28,7 @@ import static org.ops4j.pax.tinybundles.core.TinyBundles.withBnd;
 
 import org.junit.Test;
 import org.neo4j.graphdb.GraphDatabaseService;
+import org.neo4j.graphdb.index.IndexProvider;
 import org.ops4j.pax.exam.CoreOptions;
 import org.ops4j.pax.exam.options.extra.AutoWrapOption;
 import org.ops4j.pax.exam.player.Player;
@@ -52,9 +53,8 @@ public class OSGiTest {
                 mavenBundle().groupId( "org.ops4j.pax.logging" ).artifactId( "pax-logging-service" ).version( "1.6.2" ),
                 mavenBundle().groupId( "javax.transaction" ).artifactId( "com.springsource.javax.transaction" ).version( "1.1.0" ),
                 mavenBundle().groupId( "org.neo4j" ).artifactId( "neo4j-kernel" ).version( "1.4-SNAPSHOT" ),
-                //TODO: This is not working, the wrap:mvn URL seems to be not supported in the underlying framework
-//                wrappedBundle(mavenBundle().groupId( "org.apache.lucene" ).artifactId( "lucene-core" ).version( "3.1.0" )),
-//                mavenBundle().groupId( "org.neo4j" ).artifactId( "neo4j-lucene-index" ).version( "1.4-SNAPSHOT" ),
+                wrappedBundle(mavenBundle().groupId( "org.apache.lucene" ).artifactId( "lucene-core" ).version( "3.1.0" )),
+                mavenBundle().groupId( "org.neo4j" ).artifactId( "neo4j-lucene-index" ).version( "1.4-SNAPSHOT" ),
                 provision( bundle( withBnd() ) 
                         .add (Neo4jActivator.class )
                         .set( Constants.BUNDLE_ACTIVATOR, Neo4jActivator.class.getName() )
@@ -62,7 +62,8 @@ public class OSGiTest {
             )
         )
         .test( WaitForService.class, GraphDatabaseService.class.getName(), 5000 )
-        .test( CountBundles.class, 10 )
+        .test( WaitForService.class, IndexProvider.class.getName(), 5000 )
+        .test( CountBundles.class, 12 )
         .test( BundlesInState.class, Bundle.ACTIVE, Bundle.ACTIVE )
         .play();
 

@@ -22,6 +22,7 @@ package org.neo4j.examples.osgi;
 import java.util.Properties;
 
 import org.neo4j.graphdb.GraphDatabaseService;
+import org.neo4j.graphdb.index.IndexProvider;
 import org.neo4j.kernel.EmbeddedGraphDatabase;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
@@ -39,6 +40,7 @@ public class Neo4jActivator implements BundleActivator
         System.out.println("activating " + serviceRegistration + " " + db);
         db = new EmbeddedGraphDatabase( "target/db" );
         serviceRegistration = context.registerService( GraphDatabaseService.class.getName(), db, new Properties() );
+        serviceRegistration = context.registerService( IndexProvider.class.getName(), db.index().forNodes( "nodes" ), new Properties() );
         System.out.println("registered " + serviceRegistration.getReference());
  
     }

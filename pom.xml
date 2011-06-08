@@ -29,13 +29,7 @@
       <artifactId>org.osgi.compendium</artifactId>
       <version>4.2.0</version>
     </dependency>
-<!--     <dependency>
-      <groupId>org.ops4j.pax.runner</groupId>
-      <artifactId>pax-runner-no-jcl</artifactId>
-      <version>1.7.1</version>
-      <scope>test</scope>
-    </dependency>
- -->
+    <!-- <dependency> <groupId>org.ops4j.pax.runner</groupId> <artifactId>pax-runner-no-jcl</artifactId> <version>1.7.1</version> <scope>test</scope> </dependency> -->
 
     <!-- Pax Exam Dependencies -->
     <dependency>
@@ -45,6 +39,12 @@
       <scope>test</scope>
     </dependency>
 
+    <dependency>
+      <groupId>org.ops4j.pax.url</groupId>
+      <artifactId>pax-url-wrap</artifactId>
+      <version>1.3.3</version>
+      <scope>test</scope>
+    </dependency>
     <dependency>
       <groupId>org.ops4j.pax.exam</groupId>
       <artifactId>pax-exam-testforge</artifactId>
@@ -65,13 +65,7 @@
     </dependency>
 
     <!-- OSGi R4 frameworks -->
-   <!--  <dependency>
-      <groupId>org.apache.felix</groupId>
-      <artifactId>org.apache.felix.framework</artifactId>
-      <version>3.2.1</version>
-      <scope>test</scope>
-    </dependency>
- -->
+    <!-- <dependency> <groupId>org.apache.felix</groupId> <artifactId>org.apache.felix.framework</artifactId> <version>3.2.1</version> <scope>test</scope> </dependency> -->
     <dependency>
       <groupId>org.sonatype.tycho</groupId>
       <artifactId>org.eclipse.osgi</artifactId>
