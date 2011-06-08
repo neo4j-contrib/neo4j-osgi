@@ -19,18 +19,19 @@ package org.neo4j.examples.osgi;
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
+import static org.ops4j.pax.exam.CoreOptions.autoWrap;
+import static org.ops4j.pax.exam.CoreOptions.cleanCaches;
+import static org.ops4j.pax.exam.CoreOptions.felix;
 import static org.ops4j.pax.exam.CoreOptions.mavenBundle;
 import static org.ops4j.pax.exam.CoreOptions.options;
-import static org.ops4j.pax.exam.CoreOptions.wrappedBundle;
 import static org.ops4j.pax.exam.CoreOptions.provision;
+import static org.ops4j.pax.exam.CoreOptions.wrappedBundle;
 import static org.ops4j.pax.tinybundles.core.TinyBundles.bundle;
 import static org.ops4j.pax.tinybundles.core.TinyBundles.withBnd;
 
 import org.junit.Test;
 import org.neo4j.graphdb.GraphDatabaseService;
 import org.neo4j.graphdb.index.IndexProvider;
-import org.ops4j.pax.exam.CoreOptions;
-import org.ops4j.pax.exam.options.extra.AutoWrapOption;
 import org.ops4j.pax.exam.player.Player;
 import org.ops4j.pax.exam.testforge.BundlesInState;
 import org.ops4j.pax.exam.testforge.CountBundles;
@@ -47,9 +48,9 @@ public class OSGiTest {
     {
         new Player().with(
             options(
-                CoreOptions.autoWrap(),    
-                CoreOptions.felix(),
-                CoreOptions.cleanCaches(),
+                autoWrap(),    
+                felix(),
+                cleanCaches(),
                 mavenBundle().groupId( "org.ops4j.pax.logging" ).artifactId( "pax-logging-service" ).version( "1.6.2" ),
                 mavenBundle().groupId( "javax.transaction" ).artifactId( "com.springsource.javax.transaction" ).version( "1.1.0" ),
                 mavenBundle().groupId( "org.neo4j" ).artifactId( "neo4j-kernel" ).version( "1.4-SNAPSHOT" ),
