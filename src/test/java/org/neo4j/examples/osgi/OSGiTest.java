@@ -40,7 +40,7 @@ public class OSGiTest {
             options(
                 mavenBundle().groupId( "org.ops4j.pax.logging" ).artifactId( "pax-logging-service" ).version( "1.6.2" ),
                 mavenBundle().groupId( "org.apache.geronimo.specs" ).artifactId( "geronimo-jta_1.1_spec" ).version( "1.1" ).start(),
-                mavenBundle().groupId( "org.neo4j" ).artifactId( "neo4j-kernel" ).version( "1.3" ).start()
+                mavenBundle().groupId( "org.neo4j" ).artifactId( "neo4j-kernel" ).version( "1.4.M03" ).start()
             )
         )
         .test( WaitForService.class, LogService.class.getName(), 5000 )
