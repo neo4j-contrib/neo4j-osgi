@@ -74,11 +74,18 @@
       <scope>test</scope>
     </dependency>
 
+    <dependency>
+      <groupId>org.ops4j.pax</groupId>
+      <artifactId>tinybundles</artifactId>
+      <version>1.0.0-SNAPSHOT</version>
+      <scope>test</scope> 
+    </dependency>
+
 
     <!-- For sane logging -->
     <dependency>
       <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-simple</artifactId>
+      <artifactId>slf4j-simple</artifactId> 
       <version>1.6.1</version>
       <scope>test</scope>
     </dependency>
