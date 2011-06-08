@@ -26,6 +26,8 @@ import org.junit.Test;
 import org.ops4j.pax.exam.player.Player;
 import org.ops4j.pax.exam.testforge.SingleClassProvider;
 import org.ops4j.pax.exam.testforge.WaitForService;
+import org.ops4j.pax.exam.testforge.BundlesInState;
+import org.osgi.framework.Bundle;
 import org.osgi.service.log.LogService;
 import org.slf4j.LoggerFactory;
 
@@ -39,13 +41,14 @@ public class OSGiTest {
         new Player().with(
             options(
                 mavenBundle().groupId( "org.ops4j.pax.logging" ).artifactId( "pax-logging-service" ).version( "1.6.2" ),
-                mavenBundle().groupId( "org.apache.geronimo.specs" ).artifactId( "geronimo-jta_1.1_spec" ).version( "1.1" ).start(),
-                mavenBundle().groupId( "org.neo4j" ).artifactId( "neo4j-kernel" ).version( "1.4.M03" ).start()
+                mavenBundle().groupId( "javax.transaction" ).artifactId( "com.springsource.javax.transaction" ).version( "1.1.0" ).start(),
+                mavenBundle().groupId( "org.neo4j" ).artifactId( "neo4j-kernel" ).version( "1.4-SNAPSHOT" ).start()
             )
         )
         .test( WaitForService.class, LogService.class.getName(), 5000 )
         // set skip systembundle=true because equinox is indeed loading LoggerFactory from a different source.
         .test( SingleClassProvider.class, LoggerFactory.class.getName(), true )
+        .test( BundlesInState.class, Bundle.ACTIVE,Bundle.ACTIVE )
         .play();
 
     }
