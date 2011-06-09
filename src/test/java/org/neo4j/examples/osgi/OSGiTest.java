@@ -31,7 +31,7 @@ import static org.ops4j.pax.tinybundles.core.TinyBundles.withBnd;
 
 import org.junit.Test;
 import org.neo4j.graphdb.GraphDatabaseService;
-import org.neo4j.graphdb.index.IndexProvider;
+import org.neo4j.graphdb.index.Index;
 import org.ops4j.pax.exam.player.Player;
 import org.ops4j.pax.exam.testforge.BundlesInState;
 import org.ops4j.pax.exam.testforge.CountBundles;
@@ -63,7 +63,7 @@ public class OSGiTest {
             )
         )
         .test( WaitForService.class, GraphDatabaseService.class.getName(), 5000 )
-        .test( WaitForService.class, IndexProvider.class.getName(), 5000 )
+        .test( WaitForService.class, Index.class.getName(), 5000 )
         .test( CountBundles.class, 12 )
         .test( BundlesInState.class, Bundle.ACTIVE, Bundle.ACTIVE )
         .play();
