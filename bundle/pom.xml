@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>parent-pom</artifactId>
+    <groupId>org.neo4j</groupId>
+    <version>21</version>
+  </parent>
+
+  <groupId>org.neo4j</groupId>
+  <artifactId>neo4j-osgi-bundle</artifactId>
+  <version>0.1-SNAPSHOT</version>
+  <packaging>bundle</packaging>
+
+  <name>Neo4j OSGi default bundle</name>
+  <properties>
+    <neo4jversion>1.4.M06</neo4jversion>
+  </properties>
+  <dependencies>
+    <dependency>
+      <groupId>org.neo4j</groupId>
+      <artifactId>neo4j</artifactId>
+      <version>${neo4jversion}</version>
+
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.osgi</groupId>
+      <artifactId>org.osgi.compendium</artifactId>
+      <version>4.2.0</version>
+      <scope>provided</scope>
+    </dependency>
+    <!-- <dependency> <groupId>org.ops4j.pax.runner</groupId> <artifactId>pax-runner-no-jcl</artifactId> <version>1.7.1</version> <scope>test</scope> </dependency> -->
+
+
+    <!-- For sane logging -->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-simple</artifactId>
+      <version>1.6.1</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.felix</groupId>
+        <artifactId>maven-bundle-plugin</artifactId>
+        <version>1.4.0</version>
+        <extensions>true</extensions>
+        <configuration>
+          <instructions>
+            <Bundle-SymbolicName>${pom.groupId}.${pom.artifactId}</Bundle-SymbolicName>
+            <Bundle-Name>${pom.name}</Bundle-Name>
+            <Bundle-Version>${pom.version}</Bundle-Version>
+            <Import-Package>!com.sun.*,!sun.misc.*,!org.junit.*,!junit.*,*;</Import-Package>
+            <Export-Package>*;</Export-Package>
+            <Embed-Dependency>*;scope=compile|runtime</Embed-Dependency>
+            <Embed-Transitive>true</Embed-Transitive>
+            <!-- <Bundle-Activator>org.wso2.mbp.sample01.Activator</Bundle-Activator> <Private-Package>org.wso2.mbp.sample01</Private-Package> -->
+          </instructions>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+  <!--repositories>
+    <repository>
+      <id>neo4j-public-repository</id>
+      <name>Publically available Maven 2 repository for Neo4j</name>
+      <url>http://m2.neo4j.org</url>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+  </repositories-->
+
+</project>

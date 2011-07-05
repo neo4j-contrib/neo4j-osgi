@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>parent-central</artifactId>
+    <groupId>org.neo4j</groupId>
+    <version>21</version>
+  </parent>
+
+  <groupId>org.neo4j.examples</groupId>
+  <artifactId>neo4j-osgi-examples</artifactId>
+  <version>0.1-SNAPSHOT</version>
+
+  <name>Neo4j OSGi examples</name>
+  <properties>
+    <paxexamversion>2.1.0</paxexamversion>
+  </properties>
+  <dependencies>
+    <dependency>
+      <groupId>org.neo4j</groupId>
+      <artifactId>neo4j-osgi-bundle</artifactId>
+      <version>0.1-SNAPSHOT</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.osgi</groupId>
+      <artifactId>org.osgi.compendium</artifactId>
+      <version>4.2.0</version>
+      <scope>provided</scope>
+    </dependency>
+    <!-- <dependency> <groupId>org.ops4j.pax.runner</groupId> <artifactId>pax-runner-no-jcl</artifactId> <version>1.7.1</version> <scope>test</scope> </dependency> -->
+
+    <!-- Pax Exam Dependencies -->
+    <dependency>
+      <groupId>org.ops4j.pax.exam</groupId>
+      <artifactId>pax-exam-player</artifactId>
+      <version>${paxexamversion}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.ops4j.pax.url</groupId>
+      <artifactId>pax-url-wrap</artifactId>
+      <version>1.3.3</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.ops4j.pax.exam</groupId>
+      <artifactId>pax-exam-testforge</artifactId>
+      <version>${paxexamversion}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.ops4j.pax.exam</groupId>
+      <artifactId>pax-exam-container-native</artifactId>
+      <version>${paxexamversion}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.ops4j.pax.exam</groupId>
+      <artifactId>pax-exam-link-mvn</artifactId>
+      <version>${paxexamversion}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- OSGi R4 frameworks -->
+    <!-- <dependency> <groupId>org.apache.felix</groupId> <artifactId>org.apache.felix.framework</artifactId> <version>3.2.1</version> <scope>test</scope> </dependency> -->
+    <dependency>
+      <groupId>org.sonatype.tycho</groupId>
+      <artifactId>org.eclipse.osgi</artifactId>
+      <version>3.6.2.R36x_v20110210</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- <dependency> <groupId>org.ops4j.pax.swissbox</groupId> <artifactId>pax-swissbox-tinybundles</artifactId> <version>1.3.1</version> <type>bundle</type> <scope>test</scope> </dependency> -->
+
+    <dependency>
+      <groupId>org.ops4j.pax</groupId>
+      <artifactId>tinybundles</artifactId>
+      <version>1.0.0-SNAPSHOT</version>
+      <scope>test</scope>
+    </dependency> 
+
+
+    <!-- For sane logging -->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-simple</artifactId>
+      <version>1.6.1</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <!--repositories> <repository> <id>neo4j-public-repository</id> <name>Publically available Maven 2 repository for Neo4j</name> <url>http://m2.neo4j.org</url> <snapshots> <enabled>true</enabled> </snapshots> </repository> </repositories -->
+
+</project>

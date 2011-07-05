@@ -25,19 +25,20 @@ import static org.ops4j.pax.exam.CoreOptions.felix;
 import static org.ops4j.pax.exam.CoreOptions.mavenBundle;
 import static org.ops4j.pax.exam.CoreOptions.options;
 import static org.ops4j.pax.exam.CoreOptions.provision;
-import static org.ops4j.pax.exam.CoreOptions.wrappedBundle;
 import static org.ops4j.pax.tinybundles.core.TinyBundles.bundle;
-import static org.ops4j.pax.tinybundles.core.TinyBundles.withBnd;
 
 import org.junit.Test;
-import org.neo4j.graphdb.GraphDatabaseService;
-import org.neo4j.graphdb.index.Index;
 import org.ops4j.pax.exam.player.Player;
 import org.ops4j.pax.exam.testforge.BundlesInState;
 import org.ops4j.pax.exam.testforge.CountBundles;
 import org.ops4j.pax.exam.testforge.WaitForService;
+import org.ops4j.pax.tinybundles.core.builders.BndBuilder;
+import org.ops4j.pax.tinybundles.core.builders.SynchronousRawBuilder;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.Constants;
+
+import org.neo4j.graphdb.*;
+import org.neo4j.graphdb.index.*;
 
 public class OSGiTest {
 
@@ -52,11 +53,8 @@ public class OSGiTest {
                 felix(),
                 cleanCaches(),
                 mavenBundle().groupId( "org.ops4j.pax.logging" ).artifactId( "pax-logging-service" ).version( "1.6.2" ),
-                mavenBundle().groupId( "javax.transaction" ).artifactId( "com.springsource.javax.transaction" ).version( "1.1.0" ),
-                mavenBundle().groupId( "org.neo4j" ).artifactId( "neo4j-kernel" ).version( "1.4-SNAPSHOT" ),
-                wrappedBundle(mavenBundle().groupId( "org.apache.lucene" ).artifactId( "lucene-core" ).version( "3.1.0" )),
-                mavenBundle().groupId( "org.neo4j" ).artifactId( "neo4j-lucene-index" ).version( "1.4-SNAPSHOT" ),
-                provision( bundle( withBnd() ) 
+                mavenBundle().groupId( "org.neo4j" ).artifactId( "neo4j-osgi-bundle" ).version( "0.1-SNAPSHOT" ),
+                provision( bundle( new BndBuilder( new SynchronousRawBuilder() ) ) 
                         .add (Neo4jActivator.class )
                         .set( Constants.BUNDLE_ACTIVATOR, Neo4jActivator.class.getName() )
                         .build() )
@@ -64,7 +62,7 @@ public class OSGiTest {
         )
         .test( WaitForService.class, GraphDatabaseService.class.getName(), 5000 )
         .test( WaitForService.class, Index.class.getName(), 5000 )
-        .test( CountBundles.class, 12 )
+        .test( CountBundles.class,  9)
         .test( BundlesInState.class, Bundle.ACTIVE, Bundle.ACTIVE )
         .play();
 
