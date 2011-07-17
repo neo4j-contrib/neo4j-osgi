@@ -22,12 +22,10 @@ package org.neo4j.examples.osgi;
 import java.util.Properties;
 
 import org.neo4j.graphdb.GraphDatabaseService;
-import org.neo4j.graphdb.index.Index;
-import org.neo4j.graphdb.index.IndexProvider;
 import org.neo4j.graphdb.Node;
 import org.neo4j.graphdb.Relationship;
 import org.neo4j.graphdb.Transaction;
-import org.neo4j.kernel.AbstractGraphDatabase;
+import org.neo4j.graphdb.index.Index;
 import org.neo4j.kernel.EmbeddedGraphDatabase;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
