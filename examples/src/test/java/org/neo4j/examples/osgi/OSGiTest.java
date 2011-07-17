@@ -56,6 +56,7 @@ public class OSGiTest {
                 mavenBundle().groupId( "org.neo4j" ).artifactId( "neo4j-osgi-bundle" ).version( "0.1-SNAPSHOT" ),
                 provision( bundle( new BndBuilder( new SynchronousRawBuilder() ) ) 
                         .add (Neo4jActivator.class )
+                        .add (MyRelationshipTypes.class )
                         .set( Constants.BUNDLE_ACTIVATOR, Neo4jActivator.class.getName() )
                         .build() )
             )
