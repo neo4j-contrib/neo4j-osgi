@@ -72,8 +72,9 @@ public class Neo4jActivator implements BundleActivator
         }
 
         serviceRegistration = context.registerService( GraphDatabaseService.class.getName(), db, new Properties() );
-        indexServiceRegistration = context.registerService( Index.class.getName(), db.index().forNodes( "nodes" ), new Properties() );
         System.out.println("registered " + serviceRegistration.getReference());
+        indexServiceRegistration = context.registerService( Index.class.getName(), db.index().forNodes( "nodes" ), new Properties() );
+        System.out.println("registered " + indexServiceRegistration.getReference());
  
     }
 
