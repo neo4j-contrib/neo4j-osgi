@@ -68,4 +68,27 @@ public class OSGiTest {
         .play();
 
     }
+    
+    @Test
+    public void bundleStartupTest()
+        throws Exception
+    {
+        new Player().with(
+            options(
+                autoWrap(),    
+                felix(),
+                cleanCaches(),
+                mavenBundle().groupId( "org.ops4j.pax.logging" ).artifactId( "pax-logging-service" ).version( "1.6.2" ),
+                mavenBundle().groupId( "org.neo4j" ).artifactId( "neo4j-osgi-bundle" ).version( "0.1-SNAPSHOT" ),
+                mavenBundle().groupId( "org.neo4j.examples.osgi" ).artifactId( "test-bundle" ).version( "0.1-SNAPSHOT" )
+            )
+        )
+        .test( WaitForService.class, GraphDatabaseService.class.getName(), 5000 )
+        .test( WaitForService.class, Index.class.getName(), 5000 )
+        .test( CountBundles.class,  9)
+        .test( BundlesInState.class, Bundle.ACTIVE, Bundle.ACTIVE )
+        .play();
+
+    }
+
 }

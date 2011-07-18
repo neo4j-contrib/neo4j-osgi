@@ -58,7 +58,7 @@
             <Bundle-Name>${pom.name}</Bundle-Name>
             <Bundle-Version>${pom.version}</Bundle-Version>
             <Import-Package>!javax.transaction.*,!com.sun.*,!sun.misc.*,!org.junit.*,!junit.*,*;</Import-Package>
-            <Export-Package>*;</Export-Package>
+            <Export-Package>org.neo4j.*;version="1.4",*</Export-Package>
             <Embed-Dependency>*;scope=compile|runtime</Embed-Dependency>
             <Embed-Transitive>true</Embed-Transitive>
             <!-- <Bundle-Activator>org.wso2.mbp.sample01.Activator</Bundle-Activator> <Private-Package>org.wso2.mbp.sample01</Private-Package> -->
