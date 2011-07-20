@@ -28,6 +28,7 @@
   <modules>
     <module>bundle</module>
     <module>examples</module>
+    <module>test-bundle</module>
   </modules>
 
   <licenses>
@@ -50,4 +51,3 @@ the relevant Commercial Agreement.
     </license>
   </licenses>
 </project>
-

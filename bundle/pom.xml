@@ -17,6 +17,7 @@
   <name>Neo4j OSGi default bundle</name>
   <properties>
     <neo4jversion>1.4.M06</neo4jversion>
+    <bundle.namespace>org.neo4j</bundle.namespace>
   </properties>
   <dependencies>
     <dependency>
@@ -56,8 +57,8 @@
             <Bundle-SymbolicName>${project.groupId}.${project.artifactId}</Bundle-SymbolicName>
             <Bundle-Name>${project.name}</Bundle-Name>
             <Bundle-Version>${project.version}</Bundle-Version>
-            <Import-Package>!com.sun.*,!sun.misc.*,!org.junit.*,!junit.*,*;</Import-Package>
-            <Export-Package>*;</Export-Package>
+            <Import-Package>!javax.transaction.*,!com.sun.*,!sun.misc.*,!org.junit.*,!junit.*,*;</Import-Package>
+            <Export-Package>org.neo4j.*;version="1.4",*</Export-Package>
             <Embed-Dependency>*;scope=compile|runtime</Embed-Dependency>
             <Embed-Transitive>true</Embed-Transitive>
             <!-- <Bundle-Activator>org.wso2.mbp.sample01.Activator</Bundle-Activator> <Private-Package>org.wso2.mbp.sample01</Private-Package> -->
@@ -66,7 +67,7 @@
       </plugin>
     </plugins>
   </build>
-  <!--repositories>
+  <repositories>
     <repository>
       <id>neo4j-public-repository</id>
       <name>Publically available Maven 2 repository for Neo4j</name>
@@ -75,6 +76,6 @@
         <enabled>true</enabled>
       </snapshots>
     </repository>
-  </repositories-->
+  </repositories>
 
 </project>

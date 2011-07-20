@@ -91,8 +91,13 @@
       <version>1.6.1</version>
       <scope>test</scope>
     </dependency>
+    
+    <dependency>
+      <groupId>org.neo4j.examples.osgi</groupId>
+	  <artifactId>test-bundle</artifactId>
+	  <version>0.1-SNAPSHOT</version>
+    </dependency>
   </dependencies>
 
   <!--repositories> <repository> <id>neo4j-public-repository</id> <name>Publically available Maven 2 repository for Neo4j</name> <url>http://m2.neo4j.org</url> <snapshots> <enabled>true</enabled> </snapshots> </repository> </repositories -->
-
 </project>
