@@ -81,7 +81,7 @@
       <artifactId>tinybundles</artifactId>
       <version>1.0.0-SNAPSHOT</version>
       <scope>test</scope>
-    </dependency> 
+    </dependency>
 
 
     <!-- For sane logging -->
@@ -91,11 +91,20 @@
       <version>1.6.1</version>
       <scope>test</scope>
     </dependency>
-    
+
     <dependency>
       <groupId>org.neo4j.examples.osgi</groupId>
-	  <artifactId>test-bundle</artifactId>
-	  <version>0.1-SNAPSHOT</version>
+      <artifactId>test-bundle</artifactId>
+      <version>0.1-SNAPSHOT</version>
     </dependency>
   </dependencies>
+
+  <repositories>
+    <repository>
+      <id>sonatype</id>
+      <snapshots />
+      <url>https://oss.sonatype.org/content/groups/ops4j/</url>
+
+    </repository>
+  </repositories>
 </project>

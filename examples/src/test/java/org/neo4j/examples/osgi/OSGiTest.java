@@ -25,6 +25,7 @@ import static org.ops4j.pax.exam.CoreOptions.felix;
 import static org.ops4j.pax.exam.CoreOptions.mavenBundle;
 import static org.ops4j.pax.exam.CoreOptions.options;
 import static org.ops4j.pax.exam.CoreOptions.provision;
+import static org.ops4j.pax.exam.CoreOptions.repository;
 import static org.ops4j.pax.tinybundles.core.TinyBundles.*;
 
 import org.junit.Test;
@@ -48,6 +49,7 @@ public class OSGiTest {
             options(
                 autoWrap(),    
                 felix(),
+                repository("https://oss.sonatype.org/content/groups/ops4j/"),
                 cleanCaches(),
                 mavenBundle().groupId( "org.ops4j.pax.logging" ).artifactId( "pax-logging-service" ).version( "1.6.2" ),
                 mavenBundle().groupId( "org.neo4j" ).artifactId( "neo4j-osgi-bundle" ).version( "0.1-SNAPSHOT" ),
@@ -73,6 +75,7 @@ public class OSGiTest {
         new Player().with(
             options(
                 autoWrap(),    
+                repository("https://oss.sonatype.org/content/groups/ops4j/"),
                 felix(),
                 cleanCaches(),
                 mavenBundle().groupId( "org.ops4j.pax.logging" ).artifactId( "pax-logging-service" ).version( "1.6.2" ),
