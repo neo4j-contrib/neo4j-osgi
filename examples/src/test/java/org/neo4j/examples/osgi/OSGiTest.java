@@ -25,15 +25,13 @@ import static org.ops4j.pax.exam.CoreOptions.felix;
 import static org.ops4j.pax.exam.CoreOptions.mavenBundle;
 import static org.ops4j.pax.exam.CoreOptions.options;
 import static org.ops4j.pax.exam.CoreOptions.provision;
-import static org.ops4j.pax.tinybundles.core.TinyBundles.bundle;
+import static org.ops4j.pax.tinybundles.core.TinyBundles.*;
 
 import org.junit.Test;
 import org.ops4j.pax.exam.player.Player;
 import org.ops4j.pax.exam.testforge.BundlesInState;
 import org.ops4j.pax.exam.testforge.CountBundles;
 import org.ops4j.pax.exam.testforge.WaitForService;
-import org.ops4j.pax.tinybundles.core.builders.BndBuilder;
-import org.ops4j.pax.tinybundles.core.builders.SynchronousRawBuilder;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.Constants;
 
@@ -54,11 +52,11 @@ public class OSGiTest {
                 cleanCaches(),
                 mavenBundle().groupId( "org.ops4j.pax.logging" ).artifactId( "pax-logging-service" ).version( "1.6.2" ),
                 mavenBundle().groupId( "org.neo4j" ).artifactId( "neo4j-osgi-bundle" ).version( "0.1-SNAPSHOT" ),
-                provision( bundle( new BndBuilder( new SynchronousRawBuilder() ) ) 
+                provision( bundle()
                         .add (Neo4jActivator.class )
                         .add (MyRelationshipTypes.class )
                         .set( Constants.BUNDLE_ACTIVATOR, Neo4jActivator.class.getName() )
-                        .build() )
+                        .build( withBnd() ) )
             )
         )
         .test( WaitForService.class, GraphDatabaseService.class.getName(), 5000 )
