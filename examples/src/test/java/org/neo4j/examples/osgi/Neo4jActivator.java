@@ -42,7 +42,7 @@ public class Neo4jActivator implements BundleActivator
     public void start( BundleContext context ) throws Exception
     {
         System.out.print("Opening database in embedded mode: ");
-        db = new EmbeddedGraphDatabase( "graphdb" );
+        db = new EmbeddedGraphDatabase( "target/db-"+System.currentTimeMillis() );
         System.out.println("OK");
         Transaction tx = db.beginTx();
         try {
