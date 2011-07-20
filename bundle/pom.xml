@@ -4,7 +4,7 @@
 
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <artifactId>parent-pom</artifactId>
+    <artifactId>parent-central</artifactId>
     <groupId>org.neo4j</groupId>
     <version>21</version>
   </parent>
@@ -54,9 +54,9 @@
         <extensions>true</extensions>
         <configuration>
           <instructions>
-            <Bundle-SymbolicName>${pom.groupId}.${pom.artifactId}</Bundle-SymbolicName>
-            <Bundle-Name>${pom.name}</Bundle-Name>
-            <Bundle-Version>${pom.version}</Bundle-Version>
+            <Bundle-SymbolicName>${project.groupId}.${project.artifactId}</Bundle-SymbolicName>
+            <Bundle-Name>${project.name}</Bundle-Name>
+            <Bundle-Version>${project.version}</Bundle-Version>
             <Import-Package>!javax.transaction.*,!com.sun.*,!sun.misc.*,!org.junit.*,!junit.*,*;</Import-Package>
             <Export-Package>org.neo4j.*;version="1.4",*</Export-Package>
             <Embed-Dependency>*;scope=compile|runtime</Embed-Dependency>
