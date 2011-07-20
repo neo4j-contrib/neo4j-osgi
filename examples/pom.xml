@@ -15,7 +15,7 @@
 
   <name>Neo4j OSGi examples</name>
   <properties>
-    <paxexamversion>2.1.0</paxexamversion>
+    <paxexamversion>2.1.1-SNAPSHOT</paxexamversion>
   </properties>
   <dependencies>
     <dependency>
