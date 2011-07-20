@@ -17,6 +17,17 @@
   <properties>
     <paxexamversion>2.1.1-SNAPSHOT</paxexamversion>
   </properties>
+
+   <repositories>
+    <repository>
+      <id>ops4jsnapshots</id>
+      <url>https://oss.sonatype.org/content/groups/ops4j/</url>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
+
   <dependencies>
     <dependency>
       <groupId>org.neo4j</groupId>
@@ -60,7 +71,14 @@
     </dependency>
     <dependency>
       <groupId>org.ops4j.pax.exam</groupId>
-      <artifactId>pax-exam-link-mvn</artifactId>
+      <artifactId>pax-exam-link-assembly</artifactId>
+      <version>${paxexamversion}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.ops4j.pax.exam</groupId>
+      <artifactId>pax-exam-container-rbc</artifactId>
       <version>${paxexamversion}</version>
       <scope>test</scope>
     </dependency>
