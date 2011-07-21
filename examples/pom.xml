@@ -41,8 +41,6 @@
       <version>4.2.0</version>
       <scope>provided</scope>
     </dependency>
-    <!-- <dependency> <groupId>org.ops4j.pax.runner</groupId> <artifactId>pax-runner-no-jcl</artifactId> <version>1.7.1</version> <scope>test</scope> </dependency> -->
-
     <!-- Pax Exam Dependencies -->
     <dependency>
       <groupId>org.ops4j.pax.exam</groupId>
@@ -116,13 +114,4 @@
       <version>0.1-SNAPSHOT</version>
     </dependency>
   </dependencies>
-
-  <repositories>
-    <repository>
-      <id>sonatype</id>
-      <snapshots />
-      <url>https://oss.sonatype.org/content/groups/ops4j/</url>
-
-    </repository>
-  </repositories>
 </project>
