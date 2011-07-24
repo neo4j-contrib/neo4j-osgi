@@ -16,9 +16,10 @@
   <name>Neo4j OSGi examples</name>
   <properties>
     <paxexamversion>2.2.0</paxexamversion>
+    <paxrunnerversion>1.7.4</paxrunnerversion>
   </properties>
 
-   <repositories>
+  <repositories>
     <repository>
       <id>ops4jsnapshots</id>
       <url>https://oss.sonatype.org/content/groups/ops4j/</url>
@@ -61,12 +62,37 @@
       <version>${paxexamversion}</version>
       <scope>test</scope>
     </dependency>
+
+    <!-- native -->
+   <!--  <dependency>
+      <groupId>org.ops4j.pax.exam</groupId>
+      <artifactId>pax-exam-container-native</artifactId>
+      <version>${paxexamversion}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.sonatype.tycho</groupId>
+      <artifactId>org.eclipse.osgi</artifactId>
+      <version>3.6.2.R36x_v20110210</version>
+      <scope>test</scope>
+    </dependency> -->
+
+    <!-- paxrunner -->
     <dependency>
       <groupId>org.ops4j.pax.exam</groupId>
       <artifactId>pax-exam-container-paxrunner</artifactId>
       <version>${paxexamversion}</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>org.ops4j.pax.runner</groupId>
+      <artifactId>pax-runner-no-jcl</artifactId>
+      <version>${paxrunnerversion}</version>
+      <scope>test</scope>
+    </dependency>
+
+
+
     <dependency>
       <groupId>org.ops4j.pax.exam</groupId>
       <artifactId>pax-exam-link-assembly</artifactId>
@@ -83,12 +109,6 @@
 
     <!-- OSGi R4 frameworks -->
     <!-- <dependency> <groupId>org.apache.felix</groupId> <artifactId>org.apache.felix.framework</artifactId> <version>3.2.1</version> <scope>test</scope> </dependency> -->
-    <!--dependency>
-      <groupId>org.sonatype.tycho</groupId>
-      <artifactId>org.eclipse.osgi</artifactId>
-      <version>3.6.2.R36x_v20110210</version>
-      <scope>test</scope>
-    </dependency-->
 
     <!-- <dependency> <groupId>org.ops4j.pax.swissbox</groupId> <artifactId>pax-swissbox-tinybundles</artifactId> <version>1.3.1</version> <type>bundle</type> <scope>test</scope> </dependency> -->
 

@@ -11,12 +11,12 @@
 
   <groupId>org.neo4j</groupId>
   <artifactId>neo4j-osgi-bundle</artifactId>
-  <version>0.1</version>
+  <version>0.1-SNAPSHOT</version>
   <packaging>bundle</packaging>
 
   <name>Neo4j OSGi default bundle</name>
   <properties>
-    <neo4j.version>1.4.M06</neo4j.version>
+    <neo4j.version>1.5-SNAPSHOT</neo4j.version>
     <bundle.namespace>org.neo4j</bundle.namespace>
   </properties>
   <dependencies>

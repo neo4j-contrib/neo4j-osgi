@@ -21,6 +21,7 @@ package org.neo4j.examples.osgi;
 
 import static org.ops4j.pax.exam.CoreOptions.autoWrap;
 import static org.ops4j.pax.exam.CoreOptions.cleanCaches;
+import static org.ops4j.pax.exam.CoreOptions.vmOptions;
 import static org.ops4j.pax.exam.CoreOptions.felix;
 import static org.ops4j.pax.exam.CoreOptions.mavenBundle;
 import static org.ops4j.pax.exam.CoreOptions.options;
@@ -74,7 +75,8 @@ public class OSGiTest {
     {
         new Player().with(
             options(
-                autoWrap(),    
+                autoWrap(), 
+               // vmOptions("-Xdebug -Xrunjdwp:transport=dt_socket,address=127.0.0.1:8000"),
                 repository("https://oss.sonatype.org/content/groups/ops4j/"),
                 felix(),
                 cleanCaches(),
