@@ -15,7 +15,7 @@
 
   <name>Neo4j OSGi examples</name>
   <properties>
-    <paxexamversion>2.1.1-SNAPSHOT</paxexamversion>
+    <paxexamversion>2.2.0</paxexamversion>
   </properties>
 
    <repositories>
@@ -63,7 +63,7 @@
     </dependency>
     <dependency>
       <groupId>org.ops4j.pax.exam</groupId>
-      <artifactId>pax-exam-container-native</artifactId>
+      <artifactId>pax-exam-container-paxrunner</artifactId>
       <version>${paxexamversion}</version>
       <scope>test</scope>
     </dependency>
@@ -83,19 +83,19 @@
 
     <!-- OSGi R4 frameworks -->
     <!-- <dependency> <groupId>org.apache.felix</groupId> <artifactId>org.apache.felix.framework</artifactId> <version>3.2.1</version> <scope>test</scope> </dependency> -->
-    <dependency>
+    <!--dependency>
       <groupId>org.sonatype.tycho</groupId>
       <artifactId>org.eclipse.osgi</artifactId>
       <version>3.6.2.R36x_v20110210</version>
       <scope>test</scope>
-    </dependency>
+    </dependency-->
 
     <!-- <dependency> <groupId>org.ops4j.pax.swissbox</groupId> <artifactId>pax-swissbox-tinybundles</artifactId> <version>1.3.1</version> <type>bundle</type> <scope>test</scope> </dependency> -->
 
     <dependency>
       <groupId>org.ops4j.pax.tinybundles</groupId>
       <artifactId>tinybundles</artifactId>
-      <version>1.0.0-SNAPSHOT</version>
+      <version>1.0.0</version>
       <scope>test</scope>
     </dependency>
 
