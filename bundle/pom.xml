@@ -57,7 +57,7 @@
             <Bundle-Name>${project.name}</Bundle-Name>
             <Bundle-Version>${project.version}</Bundle-Version>
             <Import-Package>!javax.transaction.*,!com.sun.*,!sun.misc.*,!org.junit.*,!junit.*,*;</Import-Package>
-            <Export-Package>org.neo4j.*;version="1.4",*</Export-Package>
+            <Export-Package>org.neo4j.*;version="${neo4j.version}",*</Export-Package>
             <Embed-Dependency>*;scope=compile|runtime</Embed-Dependency>
             <Embed-Transitive>true</Embed-Transitive>
           </instructions>
