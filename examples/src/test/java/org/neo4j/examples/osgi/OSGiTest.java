@@ -21,8 +21,8 @@ package org.neo4j.examples.osgi;
 
 import static org.ops4j.pax.exam.CoreOptions.autoWrap;
 import static org.ops4j.pax.exam.CoreOptions.cleanCaches;
-import static org.ops4j.pax.exam.CoreOptions.felix;
 import static org.ops4j.pax.exam.CoreOptions.equinox;
+import static org.ops4j.pax.exam.CoreOptions.felix;
 import static org.ops4j.pax.exam.CoreOptions.mavenBundle;
 import static org.ops4j.pax.exam.CoreOptions.options;
 import static org.ops4j.pax.exam.CoreOptions.provision;
@@ -47,7 +47,7 @@ public class OSGiTest {
     public void neo4jStartupTest()
         throws Exception
     {
-        new Player().with(
+        Player player = new Player().with(
             options(
                 autoWrap(),    
                 felix(),
@@ -61,12 +61,8 @@ public class OSGiTest {
                         .set( Constants.BUNDLE_ACTIVATOR, Neo4jActivator.class.getName() )
                         .build( withBnd() ) )
             )
-        )
-        .test( WaitForService.class, GraphDatabaseService.class.getName(), 5000 )
-        .test( WaitForService.class, Index.class.getName(), 5000 )
-        .test( CountBundles.class,  9)
-        .test( BundlesInState.class, Bundle.ACTIVE, Bundle.ACTIVE )
-        .play();
+        );
+        test(player);
 
     }
     
@@ -74,7 +70,7 @@ public class OSGiTest {
     public void bundleFelixTest()
         throws Exception
     {
-        new Player().with(
+        Player player = new Player().with(
             options(
                 autoWrap(), 
                // vmOptions("-Xdebug -Xrunjdwp:transport=dt_socket,address=127.0.0.1:8000"),
@@ -85,12 +81,8 @@ public class OSGiTest {
                 mavenBundle().groupId( "org.neo4j" ).artifactId( "neo4j-osgi-bundle" ).version( "0.1-SNAPSHOT" ),
                 mavenBundle().groupId( "org.neo4j.examples.osgi" ).artifactId( "test-bundle" ).version( "0.1-SNAPSHOT" )
             )
-        )
-        .test( WaitForService.class, GraphDatabaseService.class.getName(), 5000 )
-        .test( WaitForService.class, Index.class.getName(), 5000 )
-        .test( CountBundles.class,  9)
-        .test( BundlesInState.class, Bundle.ACTIVE, Bundle.ACTIVE )
-        .play();
+        );
+        test(player);
 
     }
     
@@ -98,7 +90,7 @@ public class OSGiTest {
     public void bundleEquinoxTest()
         throws Exception
     {
-        new Player().with(
+        Player player = new Player().with(
             options(
                 autoWrap(), 
                // vmOptions("-Xdebug -Xrunjdwp:transport=dt_socket,address=127.0.0.1:8000"),
@@ -109,13 +101,19 @@ public class OSGiTest {
                 mavenBundle().groupId( "org.neo4j" ).artifactId( "neo4j-osgi-bundle" ).version( "0.1-SNAPSHOT" ),
                 mavenBundle().groupId( "org.neo4j.examples.osgi" ).artifactId( "test-bundle" ).version( "0.1-SNAPSHOT" )
             )
-        )
-        .test( WaitForService.class, GraphDatabaseService.class.getName(), 5000 )
+        );
+        test(player);
+
+    }
+
+    private void test(Player player) throws Exception
+    {
+
+        player.test( WaitForService.class, GraphDatabaseService.class.getName(), 5000 )
         .test( WaitForService.class, Index.class.getName(), 5000 )
         .test( CountBundles.class,  9)
         .test( BundlesInState.class, Bundle.ACTIVE, Bundle.ACTIVE )
         .play();
 
     }
-
 }
