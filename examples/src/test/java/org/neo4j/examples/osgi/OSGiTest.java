@@ -21,13 +21,14 @@ package org.neo4j.examples.osgi;
 
 import static org.ops4j.pax.exam.CoreOptions.autoWrap;
 import static org.ops4j.pax.exam.CoreOptions.cleanCaches;
-import static org.ops4j.pax.exam.CoreOptions.vmOptions;
 import static org.ops4j.pax.exam.CoreOptions.felix;
+import static org.ops4j.pax.exam.CoreOptions.equinox;
 import static org.ops4j.pax.exam.CoreOptions.mavenBundle;
 import static org.ops4j.pax.exam.CoreOptions.options;
 import static org.ops4j.pax.exam.CoreOptions.provision;
 import static org.ops4j.pax.exam.CoreOptions.repository;
-import static org.ops4j.pax.tinybundles.core.TinyBundles.*;
+import static org.ops4j.pax.tinybundles.core.TinyBundles.bundle;
+import static org.ops4j.pax.tinybundles.core.TinyBundles.withBnd;
 
 import org.junit.Test;
 import org.neo4j.graphdb.GraphDatabaseService;
@@ -70,7 +71,7 @@ public class OSGiTest {
     }
     
     @Test
-    public void bundleStartupTest()
+    public void bundleFelixTest()
         throws Exception
     {
         new Player().with(
@@ -79,6 +80,30 @@ public class OSGiTest {
                // vmOptions("-Xdebug -Xrunjdwp:transport=dt_socket,address=127.0.0.1:8000"),
                 repository("https://oss.sonatype.org/content/groups/ops4j/"),
                 felix(),
+                cleanCaches(),
+                mavenBundle().groupId( "org.ops4j.pax.logging" ).artifactId( "pax-logging-service" ).version( "1.6.2" ),
+                mavenBundle().groupId( "org.neo4j" ).artifactId( "neo4j-osgi-bundle" ).version( "0.1-SNAPSHOT" ),
+                mavenBundle().groupId( "org.neo4j.examples.osgi" ).artifactId( "test-bundle" ).version( "0.1-SNAPSHOT" )
+            )
+        )
+        .test( WaitForService.class, GraphDatabaseService.class.getName(), 5000 )
+        .test( WaitForService.class, Index.class.getName(), 5000 )
+        .test( CountBundles.class,  9)
+        .test( BundlesInState.class, Bundle.ACTIVE, Bundle.ACTIVE )
+        .play();
+
+    }
+    
+    @Test
+    public void bundleEquinoxTest()
+        throws Exception
+    {
+        new Player().with(
+            options(
+                autoWrap(), 
+               // vmOptions("-Xdebug -Xrunjdwp:transport=dt_socket,address=127.0.0.1:8000"),
+                repository("https://oss.sonatype.org/content/groups/ops4j/"),
+                equinox(),
                 cleanCaches(),
                 mavenBundle().groupId( "org.ops4j.pax.logging" ).artifactId( "pax-logging-service" ).version( "1.6.2" ),
                 mavenBundle().groupId( "org.neo4j" ).artifactId( "neo4j-osgi-bundle" ).version( "0.1-SNAPSHOT" ),
