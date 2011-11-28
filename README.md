@@ -5,7 +5,7 @@ This is a boilerplate Neo4j bundle consisting of the Neo4j Community distributio
 
 ## Build 
 
-First, buidl the osgi+friendly branch of Neo4j Community:
+First, build the osgi+friendly branch of Neo4j Community:
 
     git co git@github.com:neo4j/community.git
     cd community
