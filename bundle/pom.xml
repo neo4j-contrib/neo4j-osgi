@@ -5,8 +5,8 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.neo4j.build</groupId>
-    <artifactId>parent-central</artifactId>
-    <version>25</version>
+    <artifactId>osgi-build</artifactId>
+    <version>0.1-SNAPSHOT</version>
   </parent>
 
   <groupId>org.neo4j</groupId>
