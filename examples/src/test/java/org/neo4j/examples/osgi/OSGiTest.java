@@ -51,6 +51,7 @@ public class OSGiTest {
             options(
                 autoWrap(),    
                 felix(),
+                equinox(),
                 repository("https://oss.sonatype.org/content/groups/ops4j/"),
                 cleanCaches(),
                 mavenBundle().groupId( "org.ops4j.pax.logging" ).artifactId( "pax-logging-service" ).version( "1.6.2" ),
@@ -63,11 +64,10 @@ public class OSGiTest {
             )
         );
         test(player);
-
     }
     
     @Test
-    public void bundleFelixTest()
+    public void bundleTest()
         throws Exception
     {
         Player player = new Player().with(
@@ -76,25 +76,6 @@ public class OSGiTest {
                // vmOptions("-Xdebug -Xrunjdwp:transport=dt_socket,address=127.0.0.1:8000"),
                 repository("https://oss.sonatype.org/content/groups/ops4j/"),
                 felix(),
-                cleanCaches(),
-                mavenBundle().groupId( "org.ops4j.pax.logging" ).artifactId( "pax-logging-service" ).version( "1.6.2" ),
-                mavenBundle().groupId( "org.neo4j" ).artifactId( "neo4j-osgi-bundle" ).version( "0.1-SNAPSHOT" ),
-                mavenBundle().groupId( "org.neo4j.examples.osgi" ).artifactId( "test-bundle" ).version( "0.1-SNAPSHOT" )
-            )
-        );
-        test(player);
-
-    }
-    
-    @Test
-    public void bundleEquinoxTest()
-        throws Exception
-    {
-        Player player = new Player().with(
-            options(
-                autoWrap(), 
-               // vmOptions("-Xdebug -Xrunjdwp:transport=dt_socket,address=127.0.0.1:8000"),
-                repository("https://oss.sonatype.org/content/groups/ops4j/"),
                 equinox(),
                 cleanCaches(),
                 mavenBundle().groupId( "org.ops4j.pax.logging" ).artifactId( "pax-logging-service" ).version( "1.6.2" ),
@@ -114,6 +95,5 @@ public class OSGiTest {
         .test( CountBundles.class,  9)
         .test( BundlesInState.class, Bundle.ACTIVE, Bundle.ACTIVE )
         .play();
-
     }
 }
