@@ -43,6 +43,9 @@ import org.osgi.framework.Constants;
 public class OSGiTest {
 
 
+    private static final String NEO4J_OSGI_BUNDLE_VERSION = "0.1-SNAPSHOT";
+    private static final String GERONIMO_JTA_VERSION = "1.1.1";
+
     @Test
     public void neo4jStartupTest()
         throws Exception
@@ -54,8 +57,8 @@ public class OSGiTest {
                 equinox(),
                 repository("https://oss.sonatype.org/content/groups/ops4j/"),
                 cleanCaches(),
-                mavenBundle().groupId( "org.ops4j.pax.logging" ).artifactId( "pax-logging-service" ).version( "1.6.2" ),
-                mavenBundle().groupId( "org.neo4j" ).artifactId( "neo4j-osgi-bundle" ).version( "0.1-SNAPSHOT" ),
+                mavenBundle().groupId( "org.apache.geronimo.specs" ).artifactId( "geronimo-jta_1.1_spec" ).version( GERONIMO_JTA_VERSION ),
+                mavenBundle().groupId( "org.neo4j" ).artifactId( "neo4j-osgi-bundle" ).version( NEO4J_OSGI_BUNDLE_VERSION ),
                 provision( bundle()
                         .add (Neo4jActivator.class )
                         .add (MyRelationshipTypes.class )
@@ -65,7 +68,7 @@ public class OSGiTest {
         );
         test(player);
     }
-    
+
     @Test
     public void bundleTest()
         throws Exception
@@ -78,18 +81,16 @@ public class OSGiTest {
                 felix(),
                 equinox(),
                 cleanCaches(),
-                mavenBundle().groupId( "org.ops4j.pax.logging" ).artifactId( "pax-logging-service" ).version( "1.6.2" ),
-                mavenBundle().groupId( "org.neo4j" ).artifactId( "neo4j-osgi-bundle" ).version( "0.1-SNAPSHOT" ),
-                mavenBundle().groupId( "org.neo4j.examples.osgi" ).artifactId( "test-bundle" ).version( "0.1-SNAPSHOT" )
+                mavenBundle().groupId( "org.neo4j" ).artifactId( "neo4j-osgi-bundle" ).version( NEO4J_OSGI_BUNDLE_VERSION ),
+                mavenBundle().groupId( "org.apache.geronimo.specs" ).artifactId( "geronimo-jta_1.1_spec" ).version( GERONIMO_JTA_VERSION ),
+                mavenBundle().groupId( "org.neo4j.examples.osgi" ).artifactId( "test-bundle" ).version( NEO4J_OSGI_BUNDLE_VERSION )
             )
         );
         test(player);
-
     }
 
     private void test(Player player) throws Exception
     {
-
         player.test( WaitForService.class, GraphDatabaseService.class.getName(), 5000 )
         .test( WaitForService.class, Index.class.getName(), 5000 )
         .test( CountBundles.class,  9)

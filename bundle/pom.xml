@@ -25,6 +25,12 @@
       <artifactId>neo4j</artifactId>
       <version>${neo4j.version}</version>
       <scope>runtime</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>org.apache.geronimo.specs</groupId>
+          <artifactId>geronimo-jta_1.1_spec</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>org.osgi</groupId>
@@ -55,7 +61,7 @@
             <Bundle-SymbolicName>${project.groupId}.${project.artifactId}</Bundle-SymbolicName>
             <Bundle-Name>${project.name}</Bundle-Name>
             <Bundle-Version>${project.version}</Bundle-Version>
-            <Import-Package>!javax.transaction.*,!com.sun.*,!sun.misc.*,!org.junit.*,!junit.*,*;</Import-Package>
+            <Import-Package>!com.sun.*,!sun.misc.*,!org.junit.*,!junit.*,javax.transaction.*;version="[1.0.1, 2.0.0)",*;</Import-Package>
             <Export-Package>org.neo4j.*;version="${neo4j.version}",*</Export-Package>
             <Embed-Dependency>*;scope=compile|runtime</Embed-Dependency>
             <Embed-Transitive>true</Embed-Transitive>

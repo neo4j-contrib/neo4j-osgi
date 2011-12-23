@@ -27,8 +27,8 @@
 
   <modules>
     <module>bundle</module>
-    <module>examples</module>
     <module>test-bundle</module>
+    <module>examples</module>
   </modules>
 
   <licenses>

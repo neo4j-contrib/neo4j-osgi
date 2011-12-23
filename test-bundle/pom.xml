@@ -39,6 +39,12 @@
 			<version>4.2.0</version>
 			<scope>provided</scope>
 		</dependency>
+		<!-- JTA properties defined in org.neo4j.build:parent-central -->
+		<dependency>
+			<groupId>${jta.groupId}</groupId>
+			<artifactId>${jta.artifactId}</artifactId>
+			<version>${jta.version}</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
