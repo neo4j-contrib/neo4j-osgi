@@ -16,7 +16,6 @@
 
   <name>Neo4j OSGi default bundle</name>
   <properties>
-    <neo4j.version>1.6-SNAPSHOT</neo4j.version>
     <bundle.namespace>org.neo4j</bundle.namespace>
   </properties>
   <dependencies>
@@ -31,6 +30,12 @@
           <artifactId>geronimo-jta_1.1_spec</artifactId>
         </exclusion>
       </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.neo4j</groupId>
+      <artifactId>neo4j-cypher-dsl</artifactId>
+      <version>1.5</version>
+      <scope>runtime</scope>
     </dependency>
     <dependency>
       <groupId>org.osgi</groupId>
@@ -61,7 +66,7 @@
             <Bundle-SymbolicName>${project.groupId}.${project.artifactId}</Bundle-SymbolicName>
             <Bundle-Name>${project.name}</Bundle-Name>
             <Bundle-Version>${project.version}</Bundle-Version>
-            <Import-Package>!com.sun.*,!sun.misc.*,!org.junit.*,!junit.*,javax.transaction.*;version="[1.0.1, 2.0.0)",*;</Import-Package>
+            <Import-Package>!com.sun.*,!sun.misc.*,com.mysema.query.*;version="[2.2.5, 3)";resolution:="optional",org.codehaus.jackson.*;version="[1.9.1,2)";resolution:="optional",javax.transaction.*;version="[1.0.1, 2.0.0)",*;</Import-Package>
             <Export-Package>org.neo4j.*;version="${neo4j.version}",*</Export-Package>
             <Embed-Dependency>*;scope=compile|runtime</Embed-Dependency>
             <Embed-Transitive>true</Embed-Transitive>
