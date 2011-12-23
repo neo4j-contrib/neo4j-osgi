@@ -6,12 +6,12 @@
   <parent>
     <groupId>org.neo4j.build</groupId>
     <artifactId>osgi-build</artifactId>
-    <version>0.1-SNAPSHOT</version>
+    <version>1.6.0.BUILD-SNAPSHOT</version>
   </parent>
 
   <groupId>org.neo4j</groupId>
   <artifactId>neo4j-osgi-bundle</artifactId>
-  <version>0.1-SNAPSHOT</version>
+  <version>1.6.0.BUILD-SNAPSHOT</version>
   <packaging>bundle</packaging>
 
   <name>Neo4j OSGi default bundle</name>

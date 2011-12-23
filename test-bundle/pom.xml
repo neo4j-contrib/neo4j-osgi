@@ -6,12 +6,12 @@
   <parent>
     <groupId>org.neo4j.build</groupId>
     <artifactId>osgi-build</artifactId>
-    <version>0.1-SNAPSHOT</version>
+    <version>1.6.0.BUILD-SNAPSHOT</version>
   </parent>
 
 	<groupId>org.neo4j.examples.osgi</groupId>
 	<artifactId>test-bundle</artifactId>
-	<version>0.1-SNAPSHOT</version>
+	<version>1.6.0.BUILD-SNAPSHOT</version>
 	<name>test-bundle</name>
 	<url>http://maven.apache.org</url>
 	<packaging>bundle</packaging>
@@ -25,7 +25,7 @@
 		<dependency>
 			<groupId>org.neo4j</groupId>
 			<artifactId>neo4j-osgi-bundle</artifactId>
-			<version>0.1-SNAPSHOT</version>
+			<version>${neo4j-osgi-bundle.version}</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>

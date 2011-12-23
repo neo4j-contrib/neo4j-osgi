@@ -4,14 +4,14 @@
 
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <artifactId>parent-central</artifactId>
-    <groupId>org.neo4j</groupId>
-    <version>21</version>
+    <groupId>org.neo4j.build</groupId>
+    <artifactId>osgi-build</artifactId>
+    <version>1.6.0.BUILD-SNAPSHOT</version>
   </parent>
 
   <groupId>org.neo4j.examples</groupId>
   <artifactId>neo4j-osgi-examples</artifactId>
-  <version>0.1-SNAPSHOT</version>
+  <version>1.6.0.BUILD-SNAPSHOT</version>
 
   <name>Neo4j OSGi examples</name>
   <properties>
@@ -33,7 +33,7 @@
     <dependency>
       <groupId>org.neo4j</groupId>
       <artifactId>neo4j-osgi-bundle</artifactId>
-      <version>0.1-SNAPSHOT</version>
+      <version>${neo4j-osgi-bundle.version}</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
@@ -131,7 +131,7 @@
     <dependency>
       <groupId>org.neo4j.examples.osgi</groupId>
       <artifactId>test-bundle</artifactId>
-      <version>0.1-SNAPSHOT</version>
+      <version>${test-bundle.version}</version>
     </dependency>
   </dependencies>
 </project>
