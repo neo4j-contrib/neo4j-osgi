@@ -31,6 +31,7 @@
   <modules>
     <module>bundle</module>
     <module>test-bundle</module>
+    <module>sdn-test-bundle</module>
     <module>examples</module>
   </modules>
 

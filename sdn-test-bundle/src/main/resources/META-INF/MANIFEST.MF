@@ -1,0 +1,59 @@
+Manifest-Version: 1.0
+Export-Package: org.neo4j.examples.osgi;version="1.6.0.BUILD-SNAPSHOT"
+ ;uses:="org.neo4j.examples.osgi.model,org.springframework.beans.facto
+ ry.annotation,org.springframework.context,org.springframework.context
+ .event,org.springframework.stereotype",org.neo4j.examples.osgi.model;
+ version="1.6.0.BUILD-SNAPSHOT";uses:="org.aspectj.lang,org.aspectj.ru
+ ntime.internal,org.neo4j.graphdb,org.neo4j.graphdb.traversal,org.spri
+ ngframework.data.neo4j.annotation,org.springframework.data.neo4j.aspe
+ cts.core,org.springframework.data.neo4j.aspects.support.node,org.spri
+ ngframework.data.neo4j.core,org.springframework.data.neo4j.support",o
+ rg.neo4j.examples.osgi.repositories;version="1.6.0.BUILD-SNAPSHOT";us
+ es:="org.springframework.data.neo4j.repository"
+Import-Bundle: org.neo4j.neo4j-osgi-bundle;version="[1.5,2)",com.sprin
+ gsource.javax.validation;version="[1,2)",com.springsource.org.hiberna
+ te.validator;version="[4.1,5)",org.springframework.context;version="[
+ 3.0.6,4)"
+Bundle-Vendor: Junisphere Systems AG
+Bundle-Version: 1.6.0.BUILD-SNAPSHOT
+Tool: Bundlor 1.0.0.RELEASE
+Bundle-Name: sdn-test-bundle
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: org.neo4j.examples.osgi.sdn-test-bundle
+Import-Package: org.aopalliance.aop;version="[1,2)",org.aspectj.lang;v
+ ersion="[1.6.6,1.7)",org.aspectj.lang.reflect;version="[1.6.6,1.7)",o
+ rg.aspectj.runtime.internal;version="[1.6.6,1.7)",org.aspectj.runtime
+ .reflect;version="[1.6.6,1.7)",org.neo4j.graphdb;version="[1.5,2)",or
+ g.neo4j.graphdb.index;version="[1.5,2)",org.neo4j.graphdb.traversal;v
+ ersion="[1.5,2)",org.neo4j.helpers;version="[1.5,2)",org.neo4j.helper
+ s.collection;version="[1.5,2)",org.slf4j;version="[1.6.1,2)",org.spri
+ ngframework.aop;version="[3.0.6,4)",org.springframework.aop.framework
+ ;version="[3.0.6,4)",org.springframework.beans;version="[3.0.6,4)",or
+ g.springframework.beans.factory;version="[3.0.6,4)",org.springframewo
+ rk.beans.factory.annotation;version="[3.0.6,4)",org.springframework.b
+ eans.factory.aspectj;version="[3.0.6,4)",org.springframework.beans.fa
+ ctory.config;version="[3.0.6,4)",org.springframework.beans.factory.su
+ pport;version="[3.0.6,4)",org.springframework.beans.factory.wiring;ve
+ rsion="[3.0.6,4)",org.springframework.context;version="[3.0.6,4)",org
+ .springframework.context.event;version="[3.0.6,4)",org.springframewor
+ k.context.support;version="[3.0.6,4)",org.springframework.context.wea
+ ving;version="[3.0.6,4)",org.springframework.core;version="[3.0.6,4)"
+ ,org.springframework.data.domain;version="[1,2)",org.springframework.
+ data.neo4j.annotation;version="[2, 3)",org.springframework.data.neo4j
+ .aspects.config;version="[2,3)",org.springframework.data.neo4j.aspect
+ s.core;version="[2, 3)",org.springframework.data.neo4j.aspects.suppor
+ t.node;version="[2, 3)",org.springframework.data.neo4j.config;version
+ ="[2, 3)",org.springframework.data.neo4j.core;version="[2, 3)",org.sp
+ ringframework.data.neo4j.mapping;version="[2, 3)",org.springframework
+ .data.neo4j.repository;version="[2, 3)",org.springframework.data.neo4
+ j.support;version="[2, 3)",org.springframework.data.neo4j.support.nod
+ e;version="[2, 3)",org.springframework.data.persistence;version="[1,2
+ )",org.springframework.data.repository;version="[1,2)",org.springfram
+ ework.data.repository.core.support;version="[1,2)",org.springframewor
+ k.data.repository.support;version="[1,2)",org.springframework.stereot
+ ype;version="[3.0.6,4)",org.springframework.transaction;version="[3.0
+ .6,4)",org.springframework.transaction.aspectj;version="[3.0.6,4)",or
+ g.springframework.transaction.interceptor;version="[3.0.6,4)",org.spr
+ ingframework.transaction.jta;version="[3.0.6,4)",org.springframework.
+ transaction.support;version="[3.0.6,4)"
+
