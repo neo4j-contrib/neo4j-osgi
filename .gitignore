@@ -1,2 +1,13 @@
-target/
-        
+.DS_Stores
+.svn
+exam.iws
+target
+bin
+*.iml
+*.ipr
+*.iws
+.classpath
+.project
+.settings
+test-output
+felix-cache
