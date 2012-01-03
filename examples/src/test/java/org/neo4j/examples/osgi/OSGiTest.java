@@ -31,7 +31,6 @@ import static org.ops4j.pax.exam.CoreOptions.repository;
 import static org.ops4j.pax.tinybundles.core.TinyBundles.bundle;
 import static org.ops4j.pax.tinybundles.core.TinyBundles.withBnd;
 
-import org.junit.Ignore;
 import org.junit.Test;
 import org.neo4j.graphdb.GraphDatabaseService;
 import org.neo4j.graphdb.index.Index;
@@ -66,13 +65,8 @@ public class OSGiTest {
                         .set( Constants.BUNDLE_ACTIVATOR, Neo4jActivator.class.getName() )
                         .build( withBnd() ) )
             )
-        )
-        .test( WaitForService.class, GraphDatabaseService.class.getName(), 5000 )
-        .test( WaitForService.class, Index.class.getName(), 5000 )
-        .test( CountBundles.class,  11)
-        .test( BundlesInState.class, Bundle.ACTIVE, Bundle.ACTIVE )
-        ;
-        player.play();
+        );
+        test(player, 11);
     }
 
     @Test
@@ -92,10 +86,10 @@ public class OSGiTest {
                 mavenBundle().groupId( "org.neo4j.examples.osgi" ).artifactId( "test-bundle" ).version( NEO4J_OSGI_BUNDLE_VERSION )
             )
         );
-        test(player, 9);
+        test(player, 11);
     }
 
-    @Ignore
+    //@Ignore
     @Test
     public void bundleSdnTest()
         throws Exception
@@ -142,14 +136,14 @@ public class OSGiTest {
                 mavenBundle().groupId( "org.neo4j.examples.osgi" ).artifactId( "sdn-test-bundle" ).version( "0.0.1.BUILD-SNAPSHOT" )
             )
         );
-        test(player, 36);
+        test(player, 56);
     }
     
     private void test(Player player, int expectedBundles) throws Exception
     {
         player.test( WaitForService.class, GraphDatabaseService.class.getName(), 5000 )
         .test( WaitForService.class, Index.class.getName(), 5000 )
-        .test( CountBundles.class,  11)
+        .test( CountBundles.class,  expectedBundles)
         .test( BundlesInState.class, Bundle.ACTIVE, Bundle.ACTIVE )
         .play();
     }
