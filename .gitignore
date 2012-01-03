@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-target/
-        
-=======
 .DS_Stores
 .svn
 exam.iws
@@ -14,6 +10,6 @@ bin
 .project
 .settings
 test-output
+<<<<<<< HEAD
 felix-cache
 .idea
->>>>>>> tonit/master
