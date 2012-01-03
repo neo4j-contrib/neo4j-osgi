@@ -10,6 +10,5 @@ bin
 .project
 .settings
 test-output
-<<<<<<< HEAD
 felix-cache
 .idea
