@@ -66,8 +66,13 @@ public class OSGiTest {
                         .set( Constants.BUNDLE_ACTIVATOR, Neo4jActivator.class.getName() )
                         .build( withBnd() ) )
             )
-        );
-        test(player, 9);
+        )
+        .test( WaitForService.class, GraphDatabaseService.class.getName(), 5000 )
+        .test( WaitForService.class, Index.class.getName(), 5000 )
+        .test( CountBundles.class,  11)
+        .test( BundlesInState.class, Bundle.ACTIVE, Bundle.ACTIVE )
+        ;
+        player.play();
     }
 
     @Test
@@ -144,7 +149,7 @@ public class OSGiTest {
     {
         player.test( WaitForService.class, GraphDatabaseService.class.getName(), 5000 )
         .test( WaitForService.class, Index.class.getName(), 5000 )
-        .test( CountBundles.class,  expectedBundles)
+        .test( CountBundles.class,  11)
         .test( BundlesInState.class, Bundle.ACTIVE, Bundle.ACTIVE )
         .play();
     }
