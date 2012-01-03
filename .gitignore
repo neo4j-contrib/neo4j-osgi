@@ -11,3 +11,4 @@ bin
 .settings
 test-output
 felix-cache
+.idea
