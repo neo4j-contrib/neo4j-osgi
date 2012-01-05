@@ -44,7 +44,7 @@ import org.osgi.framework.Constants;
 
 public class OSGiTest {
 
-	private static final String SPRING_VERSION = "3.0.6.RELEASE";
+	private static final String SPRING_VERSION = "3.0.7.RELEASE";
 	private static final String SDN_VERSION = "2.0.0.RELEASE";
     private static final String NEO4J_OSGI_BUNDLE_VERSION = "1.6.0.BUILD-SNAPSHOT";
     private static final String GERONIMO_JTA_VERSION = "1.1.1";
