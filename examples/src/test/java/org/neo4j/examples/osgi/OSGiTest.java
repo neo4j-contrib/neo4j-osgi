@@ -119,17 +119,28 @@ public class OSGiTest {
                 mavenBundle().groupId( "org.springframework" ).artifactId( "spring-asm" ).version( SPRING_VERSION ),
                 mavenBundle().groupId( "org.springframework" ).artifactId( "spring-aspects" ).version( SPRING_VERSION ),
                 mavenBundle().groupId( "org.apache.geronimo.specs" ).artifactId( "geronimo-jta_1.1_spec" ).version( "1.1.1" ),
+                mavenBundle().groupId( "org.apache.ant" ).artifactId( "com.springsource.org.apache.tools.ant" ).version( "1.8.1" ),
                 mavenBundle().groupId( "org.apache.commons" ).artifactId( "com.springsource.org.apache.commons.beanutils" ).version( "1.8.0" ),
+                mavenBundle().groupId( "commons-configuration" ).artifactId( "commons-configuration" ).version( "1.6" ),
                 mavenBundle().groupId( "org.apache.commons" ).artifactId( "com.springsource.org.apache.commons.collections" ).version( "3.2.1" ),
                 mavenBundle().groupId( "org.apache.commons" ).artifactId( "com.springsource.org.apache.commons.codec" ).version( "1.4.0" ),
                 mavenBundle().groupId( "org.apache.commons" ).artifactId( "com.springsource.org.apache.commons.digester" ).version( "1.8.1" ),
-                mavenBundle().groupId( "org.apache.commons" ).artifactId( "net.junisphere.commons-jxpath" ).version( "1.3" ),
                 mavenBundle().groupId( "org.apache.commons" ).artifactId( "com.springsource.org.apache.commons.lang" ).version( "2.5.0" ),
-                mavenBundle().groupId( "org.apache.ant" ).artifactId( "com.springsource.org.apache.tools.ant" ).version( "1.8.1" ),
-                mavenBundle().groupId( "commons-configuration" ).artifactId( "commons-configuration" ).version( "1.6" ),
+                
+                // Non-working dependencies
+                /*
+                mavenBundle().groupId( "org.apache.commons" ).artifactId( "com.springsource.org.apache.commons.jxpath" ).version( "1.2.0" ),
+                mavenBundle().groupId( "javax.servlet" ).artifactId( "com.springsource.javax.servlet" ).version( "2.5.0" ),
+                mavenBundle().groupId( "javax.servlet" ).artifactId( "com.springsource.javax.servlet.jsp" ).version( "2.1.0" ),
+                mavenBundle().groupId( "javax.el" ).artifactId( "com.springsource.javax.el" ).version( "2.1.0" ),
+                */
+                
+                // Working dependencies
+                mavenBundle().groupId( "org.apache.commons" ).artifactId( "net.junisphere.commons-jxpath" ).version( "1.3" ),
                 mavenBundle().groupId( "javax.servlet" ).artifactId( "javax.servlet" ).version( "3.0.0.v201103241009" ),
                 mavenBundle().groupId( "javax.servlet" ).artifactId( "javax.servlet.jsp" ).version( "2.2.0.v201103241009" ),
                 mavenBundle().groupId( "javax.el" ).artifactId( "javax.el" ).version( "2.2.0.v201105051105" ),
+                
                 mavenBundle().groupId( "javax.mail" ).artifactId( "com.springsource.javax.mail" ).version( "1.4.1" ),
                 mavenBundle().groupId( "org.jdom" ).artifactId( "com.springsource.org.jdom" ).version( "1.1.0" ),
                 mavenBundle().groupId( "org.objectweb.jotm" ).artifactId( "com.springsource.org.objectweb.jotm" ).version( "2.0.10" ),
@@ -146,7 +157,7 @@ public class OSGiTest {
     private void test(Player player, int expectedBundles) throws Exception
     {
         player
-        .test( WaitForService.class, GraphDatabaseService.class.getName(), 15000 )
+        .test( WaitForService.class, GraphDatabaseService.class.getName(), 5000 )
         //.test( WaitForService.class, Index.class.getName(), 15000 )
         //.test( CountBundles.class,  expectedBundles)
        // .test( BundlesInState.class, Bundle.ACTIVE, Bundle.ACTIVE )
