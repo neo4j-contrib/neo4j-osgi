@@ -12,3 +12,5 @@ bin
 test-output
 felix-cache
 .idea
+graphdb/
+Servers/
