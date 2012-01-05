@@ -44,6 +44,8 @@ import org.osgi.framework.Constants;
 
 public class OSGiTest {
 
+	private static final String SPRING_VERSION = "3.0.6.RELEASE";
+	private static final String SDN_VERSION = "2.0.0.RELEASE";
     private static final String NEO4J_OSGI_BUNDLE_VERSION = "1.6.0.BUILD-SNAPSHOT";
     private static final String GERONIMO_JTA_VERSION = "1.1.1";
 
@@ -108,14 +110,14 @@ public class OSGiTest {
                 mavenBundle().groupId( "net.sourceforge.cglib" ).artifactId( "com.springsource.net.sf.cglib" ).version( "2.2.0" ),
                 mavenBundle().groupId( "org.aspectj" ).artifactId( "com.springsource.org.aspectj.runtime" ).version( "1.6.8.RELEASE" ),
                 mavenBundle().groupId( "org.aopalliance" ).artifactId( "com.springsource.org.aopalliance" ).version( "1.0.0" ),
-                mavenBundle().groupId( "org.springframework" ).artifactId( "spring-context" ).version( "3.0.6.RELEASE" ),
-                mavenBundle().groupId( "org.springframework" ).artifactId( "spring-beans" ).version( "3.0.6.RELEASE" ),
-                mavenBundle().groupId( "org.springframework" ).artifactId( "spring-core" ).version( "3.0.6.RELEASE" ),
-                mavenBundle().groupId( "org.springframework" ).artifactId( "spring-tx" ).version( "3.0.6.RELEASE" ),
-                mavenBundle().groupId( "org.springframework" ).artifactId( "spring-aop" ).version( "3.0.6.RELEASE" ),
-                mavenBundle().groupId( "org.springframework" ).artifactId( "spring-expression" ).version( "3.0.6.RELEASE" ),
-                mavenBundle().groupId( "org.springframework" ).artifactId( "spring-asm" ).version( "3.0.6.RELEASE" ),
-                mavenBundle().groupId( "org.springframework" ).artifactId( "spring-aspects" ).version( "3.0.6.RELEASE" ),
+                mavenBundle().groupId( "org.springframework" ).artifactId( "spring-context" ).version( SPRING_VERSION ),
+                mavenBundle().groupId( "org.springframework" ).artifactId( "spring-beans" ).version( SPRING_VERSION ),
+                mavenBundle().groupId( "org.springframework" ).artifactId( "spring-core" ).version( SPRING_VERSION ),
+                mavenBundle().groupId( "org.springframework" ).artifactId( "spring-tx" ).version( SPRING_VERSION ),
+                mavenBundle().groupId( "org.springframework" ).artifactId( "spring-aop" ).version( SPRING_VERSION ),
+                mavenBundle().groupId( "org.springframework" ).artifactId( "spring-expression" ).version( SPRING_VERSION ),
+                mavenBundle().groupId( "org.springframework" ).artifactId( "spring-asm" ).version( SPRING_VERSION ),
+                mavenBundle().groupId( "org.springframework" ).artifactId( "spring-aspects" ).version( SPRING_VERSION ),
                 mavenBundle().groupId( "org.apache.geronimo.specs" ).artifactId( "geronimo-jta_1.1_spec" ).version( "1.1.1" ),
                 mavenBundle().groupId( "org.apache.commons" ).artifactId( "com.springsource.org.apache.commons.beanutils" ).version( "1.8.0" ),
                 mavenBundle().groupId( "org.apache.commons" ).artifactId( "com.springsource.org.apache.commons.collections" ).version( "3.2.1" ),
@@ -133,9 +135,9 @@ public class OSGiTest {
                 mavenBundle().groupId( "org.objectweb.jotm" ).artifactId( "com.springsource.org.objectweb.jotm" ).version( "2.0.10" ),
                 mavenBundle().groupId( "org.objectweb.howl" ).artifactId( "com.springsource.org.objectweb.howl" ).version( "1.0.2" ),
                 mavenBundle().groupId( "org.springframework.data" ).artifactId( "spring-data-commons-core" ).version( "1.2.0.RELEASE" ),
-                mavenBundle().groupId( "org.springframework.data" ).artifactId( "spring-data-neo4j" ).version( "2.0.0.RELEASE" ),
-                mavenBundle().groupId( "org.springframework.data" ).artifactId( "spring-data-neo4j-aspects" ).version( "2.0.0.RELEASE" ),
-                mavenBundle().groupId( "org.neo4j.examples.osgi" ).artifactId( "sdn-test-bundle" ).version( "1.6.0.BUILD-SNAPSHOT" )
+                mavenBundle().groupId( "org.springframework.data" ).artifactId( "spring-data-neo4j" ).version( SDN_VERSION ),
+                mavenBundle().groupId( "org.springframework.data" ).artifactId( "spring-data-neo4j-aspects" ).version( SDN_VERSION ),
+                mavenBundle().groupId( "org.neo4j.examples.osgi" ).artifactId( "sdn-test-bundle" ).version( NEO4J_OSGI_BUNDLE_VERSION )
             )
         );
         test(player, 56);
