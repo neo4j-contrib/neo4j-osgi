@@ -15,7 +15,7 @@
 
   <name>Neo4j OSGi examples</name>
   <properties>
-    <paxrunnerversion>1.7.4</paxrunnerversion>
+    <paxrunnerversion>1.7.6</paxrunnerversion>
     <paxexamversion>2.3.0</paxexamversion>
   </properties>
 
