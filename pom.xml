@@ -17,7 +17,7 @@
   <properties>
     <short-name>osgi-build</short-name>
     <license-text.header>GPL-3-header.txt</license-text.header>
-    <neo4j.version>1.6-SNAPSHOT</neo4j.version>
+    <neo4j.version>1.6</neo4j.version>
     <test-bundle.version>1.6.0.BUILD-SNAPSHOT</test-bundle.version>
     <neo4j-osgi-bundle.version>1.6.0.BUILD-SNAPSHOT</neo4j-osgi-bundle.version>
   </properties>
