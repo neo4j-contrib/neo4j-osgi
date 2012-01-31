@@ -39,7 +39,7 @@ public class SDNSetup {
                                 repository("https://oss.sonatype.org/content/groups/ops4j/"),
                                 profile("spring.dm").version("1.2.1"),
                                 cleanCaches(),
-                                mavenBundle().groupId( "org.neo4j" ).artifactId( "neo4j-osgi-bundle" ).version( "0.1-SNAPSHOT" ),
+                                mavenBundle().groupId( "org.neo4j" ).artifactId( "neo4j-osgi-bundle" ).version( "1.6.0.BUILD-SNAPSHOT" ),
                                 mavenBundle().groupId( "net.sourceforge.cglib" ).artifactId( "com.springsource.net.sf.cglib" ).version( "2.2.0" ),
                                 mavenBundle().groupId( "org.aspectj" ).artifactId( "com.springsource.org.aspectj.runtime" ).version( "1.6.8.RELEASE" ),
                                 mavenBundle().groupId( "org.aopalliance" ).artifactId( "com.springsource.org.aopalliance" ).version( "1.0.0" ),
