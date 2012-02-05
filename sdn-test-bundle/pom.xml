@@ -70,6 +70,15 @@
 					<failOnWarnings>true</failOnWarnings>
 				</configuration>
 			</plugin>
+            <plugin>
+                 <groupId>org.apache.maven.plugins</groupId>
+                 <artifactId>maven-jar-plugin</artifactId>
+                 <configuration>
+                    <archive>
+                      <manifestFile>target/classes/META-INF/MANIFEST.MF</manifestFile>
+                    </archive>
+                 </configuration>
+            </plugin>
 			<plugin>
 				<groupId>com.mycila.maven-license-plugin</groupId>
 				<artifactId>maven-license-plugin</artifactId>
