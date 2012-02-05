@@ -33,7 +33,7 @@ public class SDNSetup {
     public static Option[] sdnOptions()
         {
             return options(
-                autoWrap(),
+                //autoWrap(),
                                 equinox(),
                                // vmOptions("-Xdebug -Xrunjdwp:transport=dt_socket,address=127.0.0.1:8000"),
                                 repository("https://oss.sonatype.org/content/groups/ops4j/"),
