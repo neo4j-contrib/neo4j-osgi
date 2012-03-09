@@ -6,15 +6,16 @@
   <parent>
     <groupId>org.neo4j.build</groupId>
     <artifactId>osgi-build</artifactId>
-    <version>1.6.0.BUILD-SNAPSHOT</version>
+    <version>1.7.0.BUILD-SNAPSHOT</version>
   </parent>
 
   <groupId>org.neo4j.examples</groupId>
   <artifactId>neo4j-osgi-examples</artifactId>
-  <version>1.6.0.BUILD-SNAPSHOT</version>
+  <version>1.7.0.BUILD-SNAPSHOT</version>
 
   <name>Neo4j OSGi examples</name>
   <properties>
+    <neo4jversion>1.7-SNAPSHOT</neo4jversion>
     <paxrunnerversion>1.7.6</paxrunnerversion>
     <paxexamversion>2.3.0</paxexamversion>
   </properties>
@@ -32,8 +33,8 @@
   <dependencies>
     <dependency>
       <groupId>org.neo4j</groupId>
-      <artifactId>neo4j-osgi-bundle</artifactId>
-      <version>${neo4j-osgi-bundle.version}</version>
+      <artifactId>neo4j</artifactId>
+      <version>${neo4jversion}</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
@@ -142,10 +143,10 @@
       <scope>test</scope>
     </dependency>
 
-    <dependency>
+<!--     <dependency>
       <groupId>org.neo4j.examples.osgi</groupId>
       <artifactId>test-bundle</artifactId>
       <version>${test-bundle.version}</version>
-    </dependency>
+    </dependency> -->
   </dependencies>
 </project>

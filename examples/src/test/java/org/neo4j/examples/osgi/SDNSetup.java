@@ -70,7 +70,11 @@ public class SDNSetup {
                                 mavenBundle().groupId( "org.springframework.data" ).artifactId( "spring-data-commons-core" ).version( "1.2.0.RELEASE" ),
                                 mavenBundle().groupId( "org.springframework.data" ).artifactId( "spring-data-neo4j" ).version( SDN_VERSION ),
                                 mavenBundle().groupId( "org.springframework.data" ).artifactId( "spring-data-neo4j-aspects" ).version( SDN_VERSION ),
-                                mavenBundle().groupId( "org.neo4j.examples.osgi" ).artifactId( "sdn-test-bundle" ).version( OSGiTest.NEO4J_OSGI_BUNDLE_VERSION )
-                );
+                                mavenBundle().groupId( "org.apache.geronimo.specs" ).artifactId( "geronimo-jta_1.1_spec" ).version( OSGiTest.GERONIMO_JTA_VERSION ),
+                                mavenBundle().groupId( "org.apache.lucene" ).artifactId( "lucene-core" ).version( "3.5.0" ),
+                                mavenBundle().groupId( "org.neo4j" ).artifactId( "neo4j-kernel" ).version( OSGiTest.NEO4J_VERSION ),
+                                mavenBundle().groupId( "org.neo4j" ).artifactId( "neo4j-kernel" ).classifier( "tests" ).version( OSGiTest.NEO4J_VERSION ),
+                                mavenBundle().groupId( "org.neo4j" ).artifactId( "neo4j-lucene-index" ).version( OSGiTest.NEO4J_VERSION )
+                                                );
         }
 }

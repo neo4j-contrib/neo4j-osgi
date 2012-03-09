@@ -19,15 +19,15 @@
  */
 package org.neo4j.examples.osgi;
 
+import static org.neo4j.examples.osgi.SDNSetup.sdnOptions;
+import static org.ops4j.pax.exam.CoreOptions.mavenBundle;
+import static org.ops4j.pax.exam.CoreOptions.workingDirectory;
+import static org.ops4j.pax.exam.OptionUtils.combine;
+
 import org.ops4j.pax.exam.ExamSystem;
 import org.ops4j.pax.exam.Option;
 import org.ops4j.pax.exam.TestContainer;
 import org.ops4j.pax.exam.spi.PaxExamRuntime;
-
-import static org.neo4j.examples.osgi.OSGiTest.*;
-import static org.neo4j.examples.osgi.SDNSetup.*;
-import static org.ops4j.pax.exam.CoreOptions.*;
-import static org.ops4j.pax.exam.OptionUtils.*;
 
 /**
  * @author Toni Menzel (toni@okidokiteam.com)

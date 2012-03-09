@@ -19,20 +19,19 @@
  */
 package org.neo4j.examples.osgi;
 
+import static org.neo4j.examples.osgi.SDNSetup.sdnOptions;
+
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.neo4j.graphdb.GraphDatabaseService;
-import org.osgi.framework.Bundle;
-import org.osgi.framework.BundleContext;
-import org.osgi.framework.BundleException;
-import org.ops4j.pax.exam.Inject;
 import org.ops4j.pax.exam.Option;
 import org.ops4j.pax.exam.junit.Configuration;
 import org.ops4j.pax.exam.junit.ExamReactorStrategy;
 import org.ops4j.pax.exam.junit.JUnit4TestRunner;
 import org.ops4j.pax.exam.spi.reactors.AllConfinedStagedReactorFactory;
-
-import static org.neo4j.examples.osgi.SDNSetup.*;
+import org.osgi.framework.Bundle;
+import org.osgi.framework.BundleContext;
+import org.osgi.framework.BundleException;
 
 /**
  *
@@ -55,7 +54,7 @@ public class SDNTest {
         return sdnOptions();
     }
 
-    @Test
+    @Test @Ignore
     public void testServiceAvailability(BundleContext ctx)
         throws InterruptedException
     {

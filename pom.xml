@@ -9,7 +9,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.neo4j.build</groupId>
   <artifactId>osgi-build</artifactId>
-  <version>1.6.0.BUILD-SNAPSHOT</version>
+  <version>1.7.0.BUILD-SNAPSHOT</version>
   <name>Neo4j OSGi Build</name>
   <packaging>pom</packaging>
   <description>Project that builds sample Neo4j OSGi bundles and examples.</description>
@@ -17,9 +17,9 @@
   <properties>
     <short-name>osgi-build</short-name>
     <license-text.header>GPL-3-header.txt</license-text.header>
-    <neo4j.version>1.6</neo4j.version>
-    <test-bundle.version>1.6.0.BUILD-SNAPSHOT</test-bundle.version>
-    <neo4j-osgi-bundle.version>1.6.0.BUILD-SNAPSHOT</neo4j-osgi-bundle.version>
+    <neo4j.version>1.7-SNAPSHOT</neo4j.version>
+    <test-bundle.version>1.7.0.BUILD-SNAPSHOT</test-bundle.version>
+    <neo4j-osgi-bundle.version>1.7.0.BUILD-SNAPSHOT</neo4j-osgi-bundle.version>
   </properties>
 
   <scm>
@@ -29,9 +29,9 @@
   </scm>
 
   <modules>
-    <module>bundle</module>
-    <module>test-bundle</module>
-    <module>sdn-test-bundle</module>
+    <!--module>bundle</module-->
+    <!--module>test-bundle</module-->
+    <!--module>sdn-test-bundle</module-->
     <module>examples</module>
   </modules>
 

@@ -38,8 +38,15 @@ package org.neo4j.examples.osgi;
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import static org.neo4j.examples.osgi.SDNSetup.*;
-import static org.ops4j.pax.exam.CoreOptions.*;
+import static org.neo4j.examples.osgi.SDNSetup.sdnOptions;
+import static org.ops4j.pax.exam.CoreOptions.autoWrap;
+import static org.ops4j.pax.exam.CoreOptions.cleanCaches;
+import static org.ops4j.pax.exam.CoreOptions.equinox;
+import static org.ops4j.pax.exam.CoreOptions.felix;
+import static org.ops4j.pax.exam.CoreOptions.mavenBundle;
+import static org.ops4j.pax.exam.CoreOptions.options;
+import static org.ops4j.pax.exam.CoreOptions.provision;
+import static org.ops4j.pax.exam.CoreOptions.repository;
 import static org.ops4j.pax.tinybundles.core.TinyBundles.bundle;
 import static org.ops4j.pax.tinybundles.core.TinyBundles.withBnd;
 
@@ -47,7 +54,6 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.neo4j.graphdb.GraphDatabaseService;
 import org.neo4j.graphdb.index.Index;
-import org.ops4j.pax.exam.Option;
 import org.ops4j.pax.exam.player.Player;
 import org.ops4j.pax.exam.testforge.BundlesInState;
 import org.ops4j.pax.exam.testforge.CountBundles;
@@ -57,22 +63,25 @@ import org.osgi.framework.Constants;
 
 public class OSGiTest {
 
-    public static final String NEO4J_OSGI_BUNDLE_VERSION = "1.6.0.BUILD-SNAPSHOT";
+    public static final String NEO4J_VERSION = "1.7-SNAPSHOT";
     public static final String GERONIMO_JTA_VERSION = "1.1.1";
 
-    @Ignore @Test
-    public void neo4jStartupTest()
+    @Test
+    public void neo4jStartupTestFelix()
         throws Exception
     {
         Player player = new Player().with(
             options(
                 autoWrap(),    
                 felix(),
-                equinox(),
+//                equinox(),
                 repository("https://oss.sonatype.org/content/groups/ops4j/"),
                 cleanCaches(),
                 mavenBundle().groupId( "org.apache.geronimo.specs" ).artifactId( "geronimo-jta_1.1_spec" ).version( GERONIMO_JTA_VERSION ),
-                mavenBundle().groupId( "org.neo4j" ).artifactId( "neo4j-osgi-bundle" ).version( NEO4J_OSGI_BUNDLE_VERSION ),
+                mavenBundle().groupId( "org.apache.lucene" ).artifactId( "lucene-core" ).version( "3.5.0" ),
+                mavenBundle().groupId( "org.neo4j" ).artifactId( "neo4j-kernel" ).version( NEO4J_VERSION ),
+                mavenBundle().groupId( "org.neo4j" ).artifactId( "neo4j-kernel" ).classifier( "tests" ).version( NEO4J_VERSION ),
+                mavenBundle().groupId( "org.neo4j" ).artifactId( "neo4j-lucene-index" ).version( NEO4J_VERSION ),
                 provision( bundle()
                         .add (Neo4jActivator.class )
                         .add (MyRelationshipTypes.class )
@@ -80,7 +89,7 @@ public class OSGiTest {
                         .build( withBnd() ) )
             )
         );
-        test(player, 11);
+        test(player, 14);
     }
 
     @Ignore
@@ -96,15 +105,15 @@ public class OSGiTest {
                 felix(),
                 equinox(),
                 cleanCaches(),
-                mavenBundle().groupId( "org.neo4j" ).artifactId( "neo4j-osgi-bundle" ).version( NEO4J_OSGI_BUNDLE_VERSION ),
+                mavenBundle().groupId( "org.neo4j" ).artifactId( "neo4j-osgi-bundle" ).version( NEO4J_VERSION ),
                 mavenBundle().groupId( "org.apache.geronimo.specs" ).artifactId( "geronimo-jta_1.1_spec" ).version( GERONIMO_JTA_VERSION ),
-                mavenBundle().groupId( "org.neo4j.examples.osgi" ).artifactId( "test-bundle" ).version( NEO4J_OSGI_BUNDLE_VERSION )
+                mavenBundle().groupId( "org.neo4j.examples.osgi" ).artifactId( "test-bundle" ).version( NEO4J_VERSION )
             )
         );
-        test(player, 11);
+        test(player, 14);
     }
 
-    //@Ignore
+    @Ignore
     @Test
     public void bundleSdnTest()
         throws Exception
@@ -117,10 +126,10 @@ public class OSGiTest {
     private void test(Player player, int expectedBundles) throws Exception
     {
         player
-        .test( WaitForService.class, GraphDatabaseService.class.getName(), 5000 )
-        //.test( WaitForService.class, Index.class.getName(), 15000 )
-        //.test( CountBundles.class,  expectedBundles)
-       // .test( BundlesInState.class, Bundle.ACTIVE, Bundle.ACTIVE )
+        .test( WaitForService.class, GraphDatabaseService.class.getName(), 10000 )
+        .test( WaitForService.class, Index.class.getName(), 15000 )
+        .test( CountBundles.class,  expectedBundles)
+        .test( BundlesInState.class, Bundle.ACTIVE, Bundle.ACTIVE )
         .play();
     }
 }
