@@ -63,7 +63,7 @@ import org.osgi.framework.Constants;
 
 public class OSGiTest {
 
-    public static final String NEO4J_VERSION = "1.7-SNAPSHOT";
+    public static final String NEO4J_VERSION = "1.8-SNAPSHOT";
     public static final String GERONIMO_JTA_VERSION = "1.1.1";
 
     @Test
@@ -80,7 +80,6 @@ public class OSGiTest {
                 mavenBundle().groupId( "org.apache.geronimo.specs" ).artifactId( "geronimo-jta_1.1_spec" ).version( GERONIMO_JTA_VERSION ),
                 mavenBundle().groupId( "org.apache.lucene" ).artifactId( "lucene-core" ).version( "3.5.0" ),
                 mavenBundle().groupId( "org.neo4j" ).artifactId( "neo4j-kernel" ).version( NEO4J_VERSION ),
-                mavenBundle().groupId( "org.neo4j" ).artifactId( "neo4j-kernel" ).classifier( "tests" ).version( NEO4J_VERSION ),
                 mavenBundle().groupId( "org.neo4j" ).artifactId( "neo4j-lucene-index" ).version( NEO4J_VERSION ),
                 provision( bundle()
                         .add (Neo4jActivator.class )
@@ -89,7 +88,7 @@ public class OSGiTest {
                         .build( withBnd() ) )
             )
         );
-        test(player, 14);
+        test(player, 13);
     }
 
     @Ignore

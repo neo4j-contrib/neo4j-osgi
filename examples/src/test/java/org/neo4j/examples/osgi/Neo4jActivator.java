@@ -31,6 +31,8 @@ import org.neo4j.graphdb.index.Index;
 import org.neo4j.graphdb.index.IndexProvider;
 import org.neo4j.index.lucene.LuceneIndexProvider;
 import org.neo4j.kernel.ListIndexIterable;
+import org.neo4j.kernel.impl.cache.CacheProvider;
+import org.neo4j.kernel.impl.cache.SoftCacheProvider;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceRegistration;
@@ -46,13 +48,16 @@ public class Neo4jActivator implements BundleActivator
     public void start( BundleContext context ) throws Exception
     {
         System.out.print("Opening database in embedded mode: ");
+        ArrayList<CacheProvider> cacheList = new ArrayList<CacheProvider>();
+        cacheList.add( new SoftCacheProvider() );
         IndexProvider lucene = new LuceneIndexProvider();
         ArrayList<IndexProvider> provs = new ArrayList<IndexProvider>();
         provs.add( lucene );
         ListIndexIterable providers = new ListIndexIterable();
-        providers .setIndexProviders( provs );
+        providers.setIndexProviders( provs );
         GraphDatabaseFactory gdbf = new GraphDatabaseFactory();
         gdbf.setIndexProviders( providers );
+        gdbf.setCacheProviders( cacheList );
         db = gdbf.newEmbeddedDatabase( "target/db");
               System.out.println("created database, db="+db);
         serviceRegistration = context.registerService( GraphDatabaseService.class.getName(), db, new Properties() );
